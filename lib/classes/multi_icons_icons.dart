@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/MultiIcons.ttf
 ///
-/// 
+///
 ///
 import 'package:flutter/widgets.dart';
 
@@ -21,5 +21,6 @@ class MultiIcons {
   static const _kFontFam = 'MultiIcons';
   static const String? _kFontPkg = null;
 
-  static const IconData non_science = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nonScience =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

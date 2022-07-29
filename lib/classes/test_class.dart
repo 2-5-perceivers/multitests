@@ -19,7 +19,7 @@ enum TestCategory {
   maturity('Maturity', Icons.school),
   personality('Personality', Icons.psychology),
   scientific('Scientific', Icons.science),
-  nonScientific('Non-scientific', MultiIcons.non_science);
+  nonScientific('Non-scientific', MultiIcons.nonScience);
 
   const TestCategory(this.title, this.icon);
   final String title;
