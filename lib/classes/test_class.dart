@@ -10,6 +10,8 @@ class Test {
   });
   final String testName, testDescription, id;
   final List<TestCategory> testCategories;
+
+  String get testUrl => 'https://adorkw.home.ro/multitests/#/test/$id';
 }
 
 enum TestCategory {
