@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/page_404.dart';
 import 'package:multitests/widgets/multitests_drawer.dart';

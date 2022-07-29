@@ -1,9 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/test_class.dart';
-import 'package:share_plus/share_plus.dart';
+import 'package:multitests/utils/share_desktop_interface.dart';
 
 class TestTile extends StatelessWidget {
   const TestTile(
@@ -61,19 +59,12 @@ class TestTile extends StatelessWidget {
                   OutlinedButton(
                     child: const Text('Share'),
                     onPressed: () {
-                      final String text =
-                          'adorkw.home.ro/multitests/test/${test.id}';
-                      if (kIsWeb) {
-                        Clipboard.setData(ClipboardData(text: text));
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Link copied to clipboard'),
-                            behavior: SnackBarBehavior.floating,
-                          ),
-                        );
-                      } else {
-                        Share.share(text);
-                      }
+                      ShareDesktop.shareDesktop(
+                        context,
+                        test.testUrl,
+                        platforms: SharePlatform.defaults,
+                        isUrl: true,
+                      );
                     },
                   ),
                   const SizedBox(

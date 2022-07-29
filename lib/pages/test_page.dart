@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/page_404.dart';
+import 'package:multitests/utils/share_desktop_interface.dart';
 import 'package:multitests/widgets/actions_builder_widget.dart';
 
 class TestPage extends StatelessWidget {
@@ -34,6 +35,12 @@ class TestPage extends StatelessWidget {
                     actionTitle: 'Share test',
                     icon: Icons.share_rounded,
                     onTap: (context, inMenu) {
+                      ShareDesktop.shareDesktop(
+                        context,
+                        test.testUrl,
+                        platforms: SharePlatform.defaults,
+                        isUrl: true,
+                      );
                     },
                   ),
                 ],
