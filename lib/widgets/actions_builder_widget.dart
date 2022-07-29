@@ -54,8 +54,8 @@ class ActionsLayout extends StatelessWidget {
                   for (int i = 0; i < menu.length; i++)
                     PopupMenuItem(
                       value: i,
-                      child: Text(menu[i].actionTitle),
                       enabled: menu[i].onTap != null,
+                      child: Text(menu[i].actionTitle),
                     ),
                 ],
               ),
