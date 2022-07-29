@@ -120,7 +120,7 @@ class MultiTestsApp extends StatelessWidget {
           routeInformationProvider: _router.routeInformationProvider,
           debugShowCheckedModeBanner: false,
           title: 'MultiTests',
-          themeMode: ThemeMode.dark,
+          themeMode: ThemeMode.system,
           theme: ThemeData.from(
             colorScheme: lightColorScheme,
             useMaterial3: true,
