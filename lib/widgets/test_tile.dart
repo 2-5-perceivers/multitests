@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/test_class.dart';
-import 'package:multitests/utils/share_desktop_interface.dart';
+import 'package:share_plus_dialog/share_plus_dialog.dart';
 
 class TestTile extends StatelessWidget {
   const TestTile(
@@ -59,7 +59,7 @@ class TestTile extends StatelessWidget {
                   OutlinedButton(
                     child: const Text('Share'),
                     onPressed: () {
-                      ShareDesktop.shareDesktop(
+                      ShareDialog.share(
                         context,
                         test.testUrl,
                         platforms: SharePlatform.defaults,
