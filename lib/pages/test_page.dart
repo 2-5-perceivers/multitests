@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/page_404.dart';
+import 'package:multitests/widgets/actions_builder_widget.dart';
 
 class TestPage extends StatelessWidget {
   const TestPage(this.testID, {super.key});
@@ -14,7 +15,7 @@ class TestPage extends StatelessWidget {
       test = TestRegistry.registeredTests.firstWhere(
         (element) => element.id == testID,
       );
-    } on StateError catch (e) {
+    } on StateError {
       return const Page404(
         errorText: 'It seems this test does not exist.',
       );
@@ -23,8 +24,23 @@ class TestPage extends StatelessWidget {
       title: 'MultiTests - ${test.testName}',
       color: Theme.of(context).colorScheme.primary,
       child: Scaffold(
-        body: Text(test.testName),
-        appBar: AppBar(),
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar.large(
+              title: Text(test.testName),
+              actions: ActionsLayout.list(
+                [
+                  ActionItem(
+                    actionTitle: 'Share test',
+                    icon: Icons.share_rounded,
+                    onTap: (context, inMenu) {
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
