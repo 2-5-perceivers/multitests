@@ -41,7 +41,7 @@ class CategoryPage extends StatelessWidget {
       title: 'MultiTests - ${category!.title}',
       color: Theme.of(context).colorScheme.primary,
       child: Scaffold(
-        body: FutureBuilder(
+        body: FutureBuilder<List<Test>>(
           builder: (context, snapshot) {
             return CustomScrollView(
               slivers: <Widget>[
