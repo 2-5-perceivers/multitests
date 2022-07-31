@@ -25,8 +25,8 @@ class MultiTestsAboutDialog extends StatelessWidget {
               style: theme.textTheme.subtitle1,
             ),
             Text(
-              'Created by the 2.5 Perceivers organization to simplyfy the '
-              'online tests, give them a nice and a simple interface, with'
+              'Created by the 2.5 Perceivers organization to simplify the '
+              'online tests, give them a nice and a simple interface, with '
               'amazing interpretations and icons. Blowing your mind with '
               'colors and an app variant.',
               style: theme.textTheme.bodyMedium!.copyWith(

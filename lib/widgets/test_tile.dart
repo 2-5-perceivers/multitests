@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/test_class.dart';
+import 'package:multitests/widgets/categories_wrap.dart';
 import 'package:share_plus_dialog/share_plus_dialog.dart';
 
 class TestTile extends StatelessWidget {
@@ -15,7 +16,10 @@ class TestTile extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 4,
+      ),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -32,24 +36,7 @@ class TestTile extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              Wrap(
-                spacing: 8,
-                runSpacing: theme.platform == TargetPlatform.android ? 0 : 8,
-                children: test.testCategories
-                    .map(
-                      (category) => ActionChip(
-                        elevation: 10,
-                        label: Text(category.title),
-                        avatar: Icon(category.icon),
-                        side: BorderSide.none,
-                        onPressed: () {
-                          context.go(
-                              '/category?q=${category.title.toLowerCase()}');
-                        },
-                      ),
-                    )
-                    .toList(growable: false),
-              ),
+              CategoriesWrap(testCategories: test.testCategories),
               const SizedBox(
                 height: 8,
               ),

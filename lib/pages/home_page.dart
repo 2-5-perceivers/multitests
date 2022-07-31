@@ -19,8 +19,9 @@ class HomePage extends StatelessWidget {
         ),
         drawer: const MultiTestsDrawer(selectedIndex: 0),
         body: ListView.builder(
-            itemBuilder: (context, index) => TestTile(testList[index]),
-            itemCount: testList.length),
+          itemBuilder: (context, index) => TestTile(testList[index]),
+          itemCount: testList.length,
+        ),
       ),
     );
   }

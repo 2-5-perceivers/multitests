@@ -22,8 +22,10 @@ void main() {
   TestRegistry.addMultiTest(
     const Test(
       id: 'purity_test',
+      version: '0.1.0',
       testName: 'Purity Test',
       testDescription: 'A simple bucket list',
+      testDuration: Duration(minutes: 20),
       testCategories: [
         TestCategory.explicit,
         TestCategory.maturity,
@@ -31,13 +33,23 @@ void main() {
         TestCategory.scientific,
         TestCategory.nonScientific,
       ],
+      testDataCollections: [
+        TestDataCollection.personality,
+        TestDataCollection.ethnicity,
+      ],
+      testSuggestions: [
+        'Think with your brain, not your willy',
+        "Don't be a fucking cunt",
+      ],
     ),
   );
   TestRegistry.addMultiTest(
     const Test(
       id: 'camels',
+      version: '0.1.0',
       testName: 'How Many Camels',
       testDescription: 'Find out how many camels you are worth',
+      testDuration: Duration(minutes: 5),
       testCategories: [TestCategory.nonScientific],
     ),
   );

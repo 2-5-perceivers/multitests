@@ -38,6 +38,7 @@ class ActionsLayout extends StatelessWidget {
         }
 
         return Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             for (ActionItem item in outsideOfMenu)
               IconButton(
@@ -55,7 +56,10 @@ class ActionsLayout extends StatelessWidget {
                     PopupMenuItem(
                       value: i,
                       enabled: menu[i].onTap != null,
-                      child: Text(menu[i].actionTitle),
+                      child: ListTile(
+                        title: Text(menu[i].actionTitle),
+                        leading: Icon(menu[i].icon),
+                      ),
                     ),
                 ],
               ),
@@ -68,11 +72,9 @@ class ActionsLayout extends StatelessWidget {
   static List<Widget> list(List<ActionItem> items,
       {int maximumIcons = _defaultMaximumIcons}) {
     return [
-      SizedBox(
-        child: ActionsLayout(
-          items: items,
-          maximumIcons: maximumIcons,
-        ),
+      ActionsLayout(
+        items: items,
+        maximumIcons: maximumIcons,
       ),
     ];
   }
