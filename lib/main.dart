@@ -26,6 +26,7 @@ void main() {
       testName: 'Purity Test',
       testDescription: 'A simple bucket list',
       testDuration: Duration(minutes: 20),
+      testQuestions: [],
       testCategories: [
         TestCategory.explicit,
         TestCategory.maturity,
@@ -50,6 +51,7 @@ void main() {
       testName: 'How Many Camels',
       testDescription: 'Find out how many camels you are worth',
       testDuration: Duration(minutes: 5),
+      testQuestions: [],
       testCategories: [TestCategory.nonScientific],
     ),
   );

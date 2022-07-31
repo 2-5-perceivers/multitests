@@ -147,7 +147,7 @@ class TestPage extends StatelessWidget {
                               ),
                               if (test.testSuggestions.isNotEmpty)
                                 ListTile(
-                                  title: Text('Suggestions'),
+                                  title: const Text('Suggestions'),
                                   subtitle: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
