@@ -71,11 +71,19 @@ class MultiTestsApp extends StatelessWidget {
         },
         routes: [
           GoRoute(
-            path: 'test/:testID',
-            builder: (context, state) {
-              return TestPage(state.params['testID'] ?? 'null');
-            },
-          ),
+              path: 'test/:testID',
+              builder: (context, state) {
+                return TestPage(state.params['testID'] ?? 'null');
+              },
+              routes: [
+                GoRoute(
+                  path: 'run',
+                  builder: (context, state) {
+                    return TestQuestionsPage(
+                        testID: state.params['testID'] ?? 'null');
+                  },
+                ),
+              ]),
           GoRoute(
             path: 'category',
             builder: (context, state) {

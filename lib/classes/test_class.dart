@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multitests/classes/multi_icons_icons.dart';
 import 'package:multitests/classes/test_items.dart';
+export 'package:multitests/classes/test_items.dart';
 
 class Test {
   const Test({

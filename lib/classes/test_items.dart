@@ -10,10 +10,11 @@ abstract class TestQuestionsCategory<T> extends TestItem {
   const TestQuestionsCategory({
     required this.title,
     required this.categoriesChildren,
+    this.resultValueKey,
   }) : super(itemType: TestItemType.category);
 
   final bool categoriesChildren;
-  final String title;
+  final String? title, resultValueKey;
 
   List<T> get children;
 
@@ -25,6 +26,7 @@ class TestQuestionsCategoryOfCategories
   const TestQuestionsCategoryOfCategories({
     required super.title,
     required List<TestQuestionsCategory> children,
+    super.resultValueKey,
   })  : _children = children,
         super(categoriesChildren: true);
 
@@ -44,9 +46,10 @@ class TestQuestionsCategoryOfCategories
 }
 
 class TestQuestionsSimpleCategory extends TestQuestionsCategory<TestQuestion> {
-  TestQuestionsSimpleCategory({
+  const TestQuestionsSimpleCategory({
     required super.title,
     required List<TestQuestion> children,
+    super.resultValueKey,
   })  : _children = children,
         super(categoriesChildren: false);
 

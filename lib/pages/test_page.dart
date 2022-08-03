@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/page_404.dart';
 import 'package:multitests/utils/utils.dart';
@@ -18,7 +19,7 @@ class TestPage extends StatelessWidget {
     try {
       test = TestRegistry.registeredTests.firstWhere(
         (element) => element.id == testID,
-      );
+      ); // TODO: move to future loading
     } on StateError {
       return const Page404(
         errorText: 'It seems this test does not exist.',
@@ -242,7 +243,9 @@ class TestPage extends StatelessWidget {
             ],
           ),
           floatingActionButton: FloatingActionButton.extended(
-            onPressed: () {},
+            onPressed: () {
+              context.go('/test/${test.id}/run');
+            },
             label: const Text('Start test'),
             icon: const Icon(Icons.play_arrow_rounded),
           ),
