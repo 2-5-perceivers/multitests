@@ -8,6 +8,7 @@ import 'package:multitests/pages/home_page.dart';
 import 'package:multitests/pages/page_404.dart';
 import 'package:multitests/pages/test_page.dart';
 import 'package:multitests/pages/test_qestions_page.dart';
+import 'package:multitests/tests/tests.dart';
 import 'package:multitests/utils/constants/eula.dart';
 import 'package:multitests/widgets/multitests_about_widgets.dart';
 
@@ -20,75 +21,7 @@ void main() {
       ),
     ),
   );
-  TestRegistry.addMultiTest(
-    Test(
-      id: 'purity_test',
-      version: '0.1.0',
-      testName: 'Purity Test',
-      testDescription: 'A simple bucket list',
-      testDuration: const Duration(minutes: 20),
-      testQuestions: [
-        const TestQuestionsSimpleCategory(
-          title: 'Are u a pussy?',
-          resultValueKey: 'purity',
-          children: [
-            TestQuestionCheck(question: 'Held hands romantically?'),
-            TestQuestionCheck(question: 'Been on a date?'),
-            TestQuestionCheck(question: 'Been in a relationship?'),
-          ],
-        ),
-      ],
-      testCategories: [
-        TestCategory.explicit,
-        TestCategory.maturity,
-        TestCategory.personality,
-        TestCategory.scientific,
-        TestCategory.nonScientific,
-      ],
-      testDataCollections: [
-        TestDataCollection.personality,
-        TestDataCollection.ethnicity,
-      ],
-      testSuggestions: [
-        'Think with your brain, not your willy',
-        "Don't be a fucking cunt",
-      ],
-      testResultDescriber: TestResultDescriber(
-        minValue: 0,
-        maxValue: 100,
-        possibleValues: [
-          '911? Yes we got him',
-          "Let's gooo",
-          'Try a little more',
-          'Boring',
-          'I assume you are a child',
-        ],
-      ),
-      resultCalculator: (responseMap) {
-        int did = 0;
-        responseMap.forEach(
-          (key, value) {
-            if (value == true) {
-              did++;
-            }
-          },
-        );
-        String purityLabel = <int, String>{
-              0: '911? Yes we got him',
-              1: "Let's gooo",
-              2: 'Try a little more',
-              3: 'Boring',
-              4: 'I assume you are a child',
-            }[(100 - did) ~/ 25] ??
-            '';
-        return TestResult(
-          'Your Purity Level',
-          resultValue: 100 - did,
-          resultType: TestResultType(purityLabel, null),
-        );
-      },
-    ),
-  );
+  TestRegistry.addMultiTest(purityTest);
   runApp(MultiTestsApp());
 }
 

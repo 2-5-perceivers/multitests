@@ -20,7 +20,7 @@ class TestResultType {
 }
 
 class TestResultDescriber {
-  TestResultDescriber({
+  const TestResultDescriber({
     this.possibleValues,
     this.minValue,
     this.maxValue,
