@@ -9,10 +9,12 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
+  animations: ^2.0.3
   dynamic_color: ^1.4.0
   flutter:
     sdk: flutter
   go_router: ^4.2.0
+  provider: ^6.0.3
   share_plus_dialog:
     git: https://github.com/2-5-perceivers/share_plus_dialog.git
   url_launcher: ^6.1.5
