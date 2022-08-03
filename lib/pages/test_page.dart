@@ -184,10 +184,38 @@ class TestPage extends StatelessWidget {
                                       Theme.of(context).textTheme.headlineSmall,
                                 ),
                               ),
-                              const ListTile(
-                                title: Text(
-                                    'I really have no clue what exactly to put in here'),
-                              )
+                              if (test.testResultDescriber.possibleValues !=
+                                  null)
+                                ListTile(
+                                  title: const Text(
+                                    'Possible values',
+                                  ),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      for (var s in test
+                                          .testResultDescriber.possibleValues!)
+                                        Text('• $s'),
+                                    ],
+                                  ),
+                                ),
+                              if (test.testResultDescriber.minValue != null)
+                                ListTile(
+                                  title: const Text('Minimum value possible'),
+                                  subtitle: Text(
+                                    test.testResultDescriber.minValue!
+                                        .toString(),
+                                  ),
+                                ),
+                              if (test.testResultDescriber.maxValue != null)
+                                ListTile(
+                                  title: const Text('Maximum value possible'),
+                                  subtitle: Text(
+                                    test.testResultDescriber.maxValue!
+                                        .toString(),
+                                  ),
+                                ),
                             ],
                           ),
                         ),

@@ -61,6 +61,9 @@ class TestProvider {
     responseRegister['$valueKey.$questionKey'] = newValue;
   }
 
+  TestResult finnish() {
+    return test.resultCalculator(responseRegister);
+  }
 
   void dispose() {
     categories.clear();

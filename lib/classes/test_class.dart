@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:multitests/classes/multi_icons_icons.dart';
 import 'package:multitests/classes/test_items.dart';
+import 'package:multitests/classes/test_result.dart';
+
+export 'package:multitests/classes/test_result.dart';
 export 'package:multitests/classes/test_items.dart';
 
 class Test {
   const Test({
     required this.id,
     required this.version,
+    required this.resultCalculator,
     required this.testName,
     required this.testDescription,
     required this.testDuration,
     required this.testQuestions,
     required this.testCategories,
+    required this.testResultDescriber,
     this.testDataCollections = const [],
     this.testSuggestions = const [],
     this.itemsViewMode = TestItemViewMode.separated,
@@ -22,15 +27,31 @@ class Test {
   final Duration testDuration;
   final TestAuthor testAuthor;
   final TestItemViewMode itemsViewMode;
+  final TestResultDescriber testResultDescriber;
   final List<TestItem> testQuestions;
   final List<TestCategory> testCategories;
   final List<TestDataCollection> testDataCollections;
   final List<String> testSuggestions;
 
+  final ResultCalculator resultCalculator;
+
   String get testUrl => 'https://adorkw.home.ro/multitests/#/test/$id';
 
-  int get questionsNumber => 0; //TODO(rares45): Implement this
+  int get questionsNumber {
+    int count = 0;
+    for (var item in testQuestions) {
+      if (item.itemType == TestItemType.category) {
+        count += (item as TestQuestionsCategory).questionsCount;
+      } else {
+        count++;
+      }
+    }
+    return count;
+  }
 }
+
+typedef ResultCalculator = TestResult Function(
+    Map<String, dynamic> responseMap);
 
 class TestAuthor {
   const TestAuthor(this.name, this.authorWebpage);
