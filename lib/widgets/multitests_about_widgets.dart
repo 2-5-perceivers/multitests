@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-const String _copyright = '© 2022 2.5 Perceivers', _appVersion = '1.0';
+const String _copyright = '© 2022 2.5 Perceivers', _appVersion = '1.0.2';
 
 /// A dialog that show information about MultiTests and opens up a License Page
 class MultiTestsAboutDialog extends StatelessWidget {
