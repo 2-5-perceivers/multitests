@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -110,8 +112,21 @@ class MultiTestsApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'MultiTests',
           themeMode: ThemeMode.system,
-          theme: ThemeData.from(
+          theme: ThemeData(
             colorScheme: lightColorScheme,
+            //https://github.com/flutter/flutter/issues/93140
+            fontFamily: kIsWeb && window.navigator.userAgent.contains('OS 15_')
+                ? '-apple-system'
+                : null,
+            brightness: lightColorScheme.brightness,
+            canvasColor: lightColorScheme.background,
+            scaffoldBackgroundColor: lightColorScheme.background,
+            bottomAppBarColor: lightColorScheme.surface,
+            cardColor: lightColorScheme.surface,
+            dividerColor: lightColorScheme.onSurface.withOpacity(0.12),
+            backgroundColor: lightColorScheme.background,
+            dialogBackgroundColor: lightColorScheme.background,
+            errorColor: lightColorScheme.error,
             useMaterial3: true,
           ),
           darkTheme: ThemeData.from(
