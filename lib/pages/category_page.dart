@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/page_404.dart';
 import 'package:multitests/widgets/multitests_drawer.dart';
@@ -25,10 +26,9 @@ class CategoryPage extends StatelessWidget {
               title: Text(TestCategory.values[index].title),
               leading: Icon(TestCategory.values[index].icon),
               onTap: () {
-                // https://github.com/flutter/packages/pull/2339
-                // GoRouter.of(context).push(
-                //   '/category?q=${TestCategory.values[index].title.toLowerCase()}',
-                // );
+                GoRouter.of(context).push(
+                  '/category?q=${TestCategory.values[index].title.toLowerCase()}',
+                );
               },
             ),
           ),

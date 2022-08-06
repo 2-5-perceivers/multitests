@@ -10,10 +10,10 @@ environment:
 
 dependencies:
   animations: ^2.0.3
-  dynamic_color: ^1.4.0
+  dynamic_color: ^1.5.2
   flutter:
     sdk: flutter
-  go_router: ^4.2.0
+  go_router: ^4.2.7
   provider: ^6.0.3
   share_plus_dialog:
     git: https://github.com/2-5-perceivers/share_plus_dialog.git
