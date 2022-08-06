@@ -31,6 +31,7 @@ class _WQCheckState extends State<WQCheck> {
                 widget.valueKey,
                 widget.question.question,
                 value!,
+                widget.question.valueForChecked,
               );
             });
           },

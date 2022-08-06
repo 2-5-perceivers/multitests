@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multitests/classes/multi_icons_icons.dart';
+import 'package:multitests/classes/question_response.dart';
 import 'package:multitests/classes/test_items.dart';
 import 'package:multitests/classes/test_result.dart';
 
@@ -51,7 +52,7 @@ class Test {
 }
 
 typedef ResultCalculator = TestResult Function(
-    Map<String, dynamic> responseMap);
+    Map<String, QuestionResponse> responseMap);
 
 class TestAuthor {
   const TestAuthor(this.name, this.authorWebpage);

@@ -10,7 +10,7 @@ const List<String> _possibleValues = [
 
 Test purityTest = Test(
   id: 'purity_test',
-  version: '1.0.0',
+  version: '1.1.0',
   testName: 'Purity Test',
   testDescription: 'A simple bucket list',
   testDuration: const Duration(minutes: 10),
@@ -186,16 +186,23 @@ Test purityTest = Test(
         TestQuestionCheck(question: 'Impregnated someone or been impregnated?'),
         TestQuestionCheck(question: 'Paid or been paid for a sexual act?'),
         TestQuestionCheck(
-            question: 'Committed an act of voyeurism? (You creep)'),
+          question: 'Committed an act of voyeurism? (You creep)',
+          valueForChecked: 5,
+        ),
         TestQuestionCheck(question: 'Committed an act of incest?'),
       ],
     ),
     TestQuestionsSimpleCategory(
       title: 'Really bad (I hope this will not be checked)',
       children: [
-        TestQuestionCheck(question: 'Physically hurt someone?'),
         TestQuestionCheck(
-            question: 'Killed someone without an ethical reason?'),
+          question: 'Physically hurt someone?',
+          valueForChecked: 5,
+        ),
+        TestQuestionCheck(
+          question: 'Killed someone without an ethical reason?',
+          valueForChecked: 10,
+        ),
       ],
     ),
   ],
@@ -221,11 +228,12 @@ Test purityTest = Test(
     int did = 0;
     responseMap.forEach(
       (key, value) {
-        if (value == true) {
-          did++;
+        if (value.boolChoice ?? false) {
+          did += value.value;
         }
       },
     );
+    did = did ~/ 1.17;
     String purityLabel = _possibleValues[(100 - did) ~/ 25];
     return TestResult(
       'Your Purity Level',

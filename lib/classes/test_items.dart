@@ -69,7 +69,8 @@ abstract class TestQuestion extends TestItem {
 }
 
 class TestQuestionCheck extends TestQuestion {
-  const TestQuestionCheck({required super.question});
+  const TestQuestionCheck({required super.question, this.valueForChecked = 1});
+  final int valueForChecked;
 }
 
 enum TestItemType {

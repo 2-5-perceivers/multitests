@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multitests/classes/question_response.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:provider/provider.dart';
 
@@ -12,8 +13,7 @@ class TestProvider {
   late List<TestQuestionsCategory> categories;
   late bool paged;
 
-  late Map<String, dynamic> responseRegister;
-  late Map<String, int> valueRegister;
+  late Map<String, QuestionResponse> responseRegister;
 
   Future<Test> loadTest() async {
     try {
@@ -48,17 +48,20 @@ class TestProvider {
     paged = test.itemsViewMode == TestItemViewMode.paged;
 
     responseRegister = {};
-    valueRegister = {};
 
     return test;
   }
 
   bool getBoolValue(String valueKey, String questionKey) {
-    return (responseRegister['$valueKey.$questionKey'] as bool?) ?? false;
+    return (responseRegister['$valueKey.$questionKey']?.boolChoice ?? false);
   }
 
-  void setBool(String valueKey, String questionKey, bool newValue) {
-    responseRegister['$valueKey.$questionKey'] = newValue;
+  void setBool(String valueKey, String questionKey, bool newValue, int value) {
+    responseRegister['$valueKey.$questionKey'] = QuestionResponse(
+      valueKey,
+      value,
+      boolChoice: newValue,
+    );
   }
 
   TestResult finnish() {
