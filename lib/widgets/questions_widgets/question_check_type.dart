@@ -16,7 +16,8 @@ class _WQCheckState extends State<WQCheck> {
 
   @override
   Widget build(BuildContext context) {
-    checkValue = TestProvider.of(context).getBoolValue(
+    TestProvider tp = TestProvider.of(context);
+    checkValue = tp.getBoolValue(
       widget.valueKey,
       widget.question.question,
     );
@@ -27,7 +28,7 @@ class _WQCheckState extends State<WQCheck> {
         child: Checkbox(
           onChanged: (value) {
             setState(() {
-              TestProvider.of(context).setBool(
+              tp.setBool(
                 widget.valueKey,
                 widget.question.question,
                 value!,

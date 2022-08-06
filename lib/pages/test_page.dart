@@ -15,6 +15,7 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     Test test;
     try {
       test = TestRegistry.registeredTests.firstWhere(
@@ -27,11 +28,11 @@ class TestPage extends StatelessWidget {
     }
     return Title(
       title: 'MultiTests - ${test.testName}',
-      color: Theme.of(context).colorScheme.primary,
+      color: theme.colorScheme.primary,
       child: IconTheme(
-        data: Theme.of(context).iconTheme.copyWith(
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-            ),
+        data: theme.iconTheme.copyWith(
+          color: theme.colorScheme.onPrimaryContainer,
+        ),
         child: Scaffold(
           body: CustomScrollView(
             slivers: [
@@ -74,8 +75,7 @@ class TestPage extends StatelessWidget {
                                     const EdgeInsets.only(left: 16, top: 16),
                                 child: Text(
                                   'About test',
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
+                                  style: theme.textTheme.headlineSmall,
                                 ),
                               ),
                               ListTile(
@@ -133,8 +133,7 @@ class TestPage extends StatelessWidget {
                                     const EdgeInsets.only(left: 16, top: 16),
                                 child: Text(
                                   'Doing the test',
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
+                                  style: theme.textTheme.headlineSmall,
                                 ),
                               ),
                               ListTile(
@@ -180,8 +179,7 @@ class TestPage extends StatelessWidget {
                                     const EdgeInsets.only(left: 16, top: 16),
                                 child: Text(
                                   'Results',
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
+                                  style: theme.textTheme.headlineSmall,
                                 ),
                               ),
                               if (test.testResultDescriber.possibleValues !=
@@ -256,7 +254,7 @@ class TestPage extends StatelessWidget {
                         Expanded(
                           child: Text(
                             'Press this button to start the test',
-                            style: Theme.of(context).textTheme.bodySmall,
+                            style: theme.textTheme.bodySmall,
                             textAlign: TextAlign.end,
                             softWrap: true,
                             maxLines: 2,

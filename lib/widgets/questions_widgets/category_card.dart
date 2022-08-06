@@ -18,7 +18,7 @@ class WQCategoryCard extends StatelessWidget {
         vertical: 4,
       ),
       child: Card(
-        color: Theme.of(context).colorScheme.surfaceTint.withOpacity(0.05),
+        color: theme.colorScheme.surfaceTint.withOpacity(0.05),
         elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(16.0),

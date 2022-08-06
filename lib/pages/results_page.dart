@@ -8,6 +8,7 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Results'),
@@ -18,19 +19,19 @@ class ResultPage extends StatelessWidget {
           children: [
             Text(
               testResult.resultMessage,
-              style: Theme.of(context).textTheme.displayMedium,
+              style: theme.textTheme.displayMedium,
             ),
             if (testResult.resultType != null)
               Text(
                 testResult.resultType!.name,
-                style: Theme.of(context).textTheme.displaySmall,
+                style: theme.textTheme.displaySmall,
               ),
             if (testResult.resultType?.widget != null)
               testResult.resultType!.widget!,
             if (testResult.resultValue != null)
               Text(
                 testResult.resultValue!.toString(),
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: theme.textTheme.bodyLarge,
               ),
           ],
         ),

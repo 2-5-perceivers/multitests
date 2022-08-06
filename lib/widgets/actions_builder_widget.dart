@@ -39,6 +39,7 @@ class ActionsLayout extends StatelessWidget {
 
         return Row(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             for (ActionItem item in outsideOfMenu)
               IconButton(

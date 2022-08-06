@@ -11,9 +11,10 @@ class Page404 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Title(
       title: errorText == null ? '404' : '404 - $errorText',
-      color: Theme.of(context).colorScheme.primary,
+      color: theme.colorScheme.primary,
       child: Scaffold(
         body: Center(
           child: Column(
@@ -21,7 +22,7 @@ class Page404 extends StatelessWidget {
             children: [
               Text(
                 '404',
-                style: Theme.of(context).textTheme.displayLarge,
+                style: theme.textTheme.displayLarge,
               ),
               if (errorText != null) Text(errorText!),
               const SizedBox(

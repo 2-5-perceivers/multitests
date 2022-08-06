@@ -65,6 +65,7 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     _testProvider = TestProvider.of(context);
     List<TestQuestionsCategory> actualViews = _testProvider.paged
         ? [_testProvider.categories[pageIndex]]
@@ -98,8 +99,8 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
           height: 70,
           child: Container(
             color: ElevationOverlay.applySurfaceTint(
-              Theme.of(context).colorScheme.surface,
-              Theme.of(context).colorScheme.surfaceTint,
+              theme.colorScheme.surface,
+              theme.colorScheme.surfaceTint,
               2,
             ),
             child: Padding(
