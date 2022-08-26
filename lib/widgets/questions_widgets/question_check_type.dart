@@ -40,9 +40,9 @@ class _WQCheckState extends State<WQCheck> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
-          checkColor: Theme.of(context).colorScheme.onPrimaryContainer,
+          checkColor: Theme.of(context).colorScheme.onPrimary,
           fillColor: MaterialStateProperty.all(
-            Theme.of(context).colorScheme.primaryContainer,
+            Theme.of(context).colorScheme.primary,
           ),
         ),
       ),

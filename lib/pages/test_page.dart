@@ -101,7 +101,7 @@ class TestPage extends StatelessWidget {
                                   preferBelow: false,
                                   triggerMode: TooltipTriggerMode.tap,
                                   message:
-                                      'Some tests might collect informations for public reports',
+                                      'Some tests might collect data for public statistics',
                                   child: Icon(
                                     Icons.help_outline_rounded,
                                   ),
@@ -232,6 +232,7 @@ class TestPage extends StatelessWidget {
                           },
                           title:
                               Text('Test provided by ${test.testAuthor.name}'),
+                          trailing: Icon(Icons.north_east),
                         ),
                       ),
                     ),

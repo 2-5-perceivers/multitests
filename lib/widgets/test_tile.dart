@@ -57,18 +57,8 @@ class TestTile extends StatelessWidget {
                   const SizedBox(
                     width: 8,
                   ),
-                  ElevatedButton(
-                    // TODO: migrate to Filled Button
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        theme.colorScheme.primary,
-                      ),
-                      foregroundColor: MaterialStateProperty.all(
-                        theme.colorScheme.onPrimary,
-                      ),
-                    ),
+                  FilledButton(
                     child: const Text('Do test'),
-
                     onPressed: () {
                       context.go('/test/${test.id}');
                     },

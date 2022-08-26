@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-const String _copyright = '© 2022 2.5 Perceivers', _appVersion = '1.1.0';
+const String _copyright = '© 2022 2.5 Perceivers and Adorkw',
+    _appVersion = '1.1.2';
 
 /// A dialog that show information about MultiTests and opens up a License Page
 class MultiTestsAboutDialog extends StatelessWidget {
@@ -18,20 +19,24 @@ class MultiTestsAboutDialog extends StatelessWidget {
           children: [
             Text(
               _copyright,
-              style: theme.textTheme.subtitle1,
+              style: theme.textTheme.titleMedium,
             ),
             Text(
               'Version $_appVersion',
-              style: theme.textTheme.subtitle1,
+              style: theme.textTheme.titleMedium,
+            ),
+            SizedBox(
+              height: 16,
             ),
             Text(
-              'Created by the 2.5 Perceivers organization to simplify the '
+              'Created by 2.5 Perceivers and Adorkw to simplify the '
               'online tests, give them a nice and a simple interface, with '
               'amazing interpretations and icons. Blowing your mind with '
               'colors and an app variant.',
               style: theme.textTheme.bodyMedium!.copyWith(
                 color: theme.colorScheme.onSurface,
               ),
+              textAlign: TextAlign.justify,
             ),
           ],
         ),
@@ -41,12 +46,18 @@ class MultiTestsAboutDialog extends StatelessWidget {
           onPressed: () {
             GoRouter.of(context).go('/licenses');
           },
-          child: const Text('Licenses'),
+          child: const Text(
+            'Licenses',
+            textAlign: TextAlign.end,
+          ),
         ),
         TextButton(
           // Close the dialog
           onPressed: () => Navigator.pop(context),
-          child: const Text('Close'),
+          child: const Text(
+            'Close',
+            textAlign: TextAlign.end,
+          ),
         ),
       ],
     );

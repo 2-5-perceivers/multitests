@@ -129,8 +129,21 @@ class MultiTestsApp extends StatelessWidget {
             errorColor: lightColorScheme.error,
             useMaterial3: true,
           ),
-          darkTheme: ThemeData.from(
+          darkTheme: ThemeData(
             colorScheme: darkColorScheme,
+            //https://github.com/flutter/flutter/issues/93140
+            fontFamily: kIsWeb && window.navigator.userAgent.contains('OS 15_')
+                ? '-apple-system'
+                : null,
+            brightness: darkColorScheme.brightness,
+            canvasColor: darkColorScheme.background,
+            scaffoldBackgroundColor: darkColorScheme.background,
+            bottomAppBarColor: darkColorScheme.surface,
+            cardColor: darkColorScheme.surface,
+            dividerColor: darkColorScheme.onSurface.withOpacity(0.12),
+            backgroundColor: darkColorScheme.background,
+            dialogBackgroundColor: darkColorScheme.background,
+            errorColor: darkColorScheme.error,
             useMaterial3: true,
           ),
         );

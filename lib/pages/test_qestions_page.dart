@@ -129,7 +129,7 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
                   Expanded(
                     child: pageIndex >= _testProvider.categories.length - 1 ||
                             !_testProvider.paged
-                        ? ElevatedButton.icon(
+                        ? FilledButton.icon(
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
@@ -142,8 +142,7 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
                             icon: const Icon(Icons.done_rounded),
                             label: const Text('Finish'),
                           )
-                        : ElevatedButton(
-                            // TODO: replace with filled buttons
+                        : FilledButton(
                             onPressed: () {
                               setState(() {
                                 reversingPage = false;
