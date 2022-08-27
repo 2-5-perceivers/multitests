@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -54,31 +52,30 @@ class MultiTestsApp extends StatelessWidget {
                 ),
               ]),
           GoRoute(
-            path: 'category',
-            builder: (context, state) {
-              TestCategory? category;
-              try {
-                category = state.queryParams['q']?.isEmpty ?? true
-                    ? null
-                    : TestCategory.values.firstWhere(
-                        (element) =>
-                            element.title.toLowerCase() ==
-                            state.queryParams['q'],
-                      );
-              } catch (e) {
-                return const Page404(
-                  errorText: 'Wrong input data',
-                );
-              }
-              return CategoryPage(category: category);
-            },
-          ),
-          GoRoute(
             path: 'licenses',
             builder: (context, state) => const MultiTestsLicensePage(),
           ),
         ],
-      )
+      ),
+      GoRoute(
+        path: '/category',
+        builder: (context, state) {
+          TestCategory? category;
+          try {
+            category = state.queryParams['q']?.isEmpty ?? true
+                ? null
+                : TestCategory.values.firstWhere(
+                    (element) =>
+                        element.title.toLowerCase() == state.queryParams['q'],
+                  );
+          } catch (e) {
+            return const Page404(
+              errorText: 'Wrong input data',
+            );
+          }
+          return CategoryPage(category: category);
+        },
+      ),
     ],
     errorBuilder: (context, state) => const Page404(),
   );
@@ -114,10 +111,6 @@ class MultiTestsApp extends StatelessWidget {
           themeMode: ThemeMode.system,
           theme: ThemeData(
             colorScheme: lightColorScheme,
-            //https://github.com/flutter/flutter/issues/93140
-            fontFamily: kIsWeb && window.navigator.userAgent.contains('OS 15_')
-                ? '-apple-system'
-                : null,
             brightness: lightColorScheme.brightness,
             canvasColor: lightColorScheme.background,
             scaffoldBackgroundColor: lightColorScheme.background,
@@ -131,10 +124,6 @@ class MultiTestsApp extends StatelessWidget {
           ),
           darkTheme: ThemeData(
             colorScheme: darkColorScheme,
-            //https://github.com/flutter/flutter/issues/93140
-            fontFamily: kIsWeb && window.navigator.userAgent.contains('OS 15_')
-                ? '-apple-system'
-                : null,
             brightness: darkColorScheme.brightness,
             canvasColor: darkColorScheme.background,
             scaffoldBackgroundColor: darkColorScheme.background,

@@ -2,52 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multitests/widgets/multitests_about_widgets.dart';
 
-class MultiTestsDrawer extends StatelessWidget {
-  const MultiTestsDrawer({this.selectedIndex, super.key});
+import 'package:multitests/widgets/list_tile.dart';
 
-  final int? selectedIndex;
+const List<_Page> _pages = [
+  _Page(Icons.home, 'Home', '/'),
+  _Page(Icons.category_rounded, 'Category', '/category'),
+];
+
+class WDrawer extends StatelessWidget {
+  const WDrawer({
+    super.key,
+    this.selected = -1,
+  });
+
+  final int selected;
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          DrawerHeader(
-            child: Center(
-              child: Text(
-                'MultiTests',
-                style: Theme.of(context).textTheme.displaySmall,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: Text(
+                  'MultiTests',
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
               ),
             ),
           ),
-          ListTile(
-            title: const Text('Tests'),
-            selected: selectedIndex == 0,
-            onTap: () {
-              if (selectedIndex != 0) {
-                // Pop the drawer and then move to 'Tests' page
-                Navigator.of(context).pop();
-                context.go('/');
-              }
-            },
-          ),
-          ListTile(
-            title: const Text('Category'),
-            selected: selectedIndex == 1,
-            onTap: () {
-              if (selectedIndex != 1) {
-                // Pop the drawer and then move to 'Category' page
-                Navigator.of(context).pop();
-                context.go('/category');
-              }
-            },
-          ),
+          for (int i = 0; i < _pages.length; i++)
+            WListTile(
+              leading: Icon(_pages[i].icon),
+              title: Text(_pages[i].title),
+              selected: i == selected,
+              onTap: () {
+                context.go(_pages[i].pagePath);
+              },
+            ),
           const Expanded(
             // Space to force showing the about tile at the bottom
             child: SizedBox(),
           ),
-          const Divider(indent: 16, endIndent: 16),
-          ListTile(
+          const Divider(indent: 32, endIndent: 32),
+          WListTile(
             title: const Text('About'),
             leading: const Icon(Icons.info_outline_rounded),
             subtitle: const Text('More info about the app'),
@@ -62,4 +64,10 @@ class MultiTestsDrawer extends StatelessWidget {
       ),
     );
   }
+}
+
+class _Page {
+  const _Page(this.icon, this.title, this.pagePath);
+  final IconData icon;
+  final String title, pagePath;
 }

@@ -6,11 +6,9 @@ class CategoriesWrap extends StatelessWidget {
   const CategoriesWrap({
     Key? key,
     required this.testCategories,
-    this.pushInsteadOfGo = false,
   }) : super(key: key);
 
   final List<TestCategory> testCategories;
-  final bool pushInsteadOfGo;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +23,7 @@ class CategoriesWrap extends StatelessWidget {
               avatar: Icon(category.icon),
               side: BorderSide.none,
               onPressed: () {
-                if (pushInsteadOfGo) {
-                  context.push('/category?q=${category.title.toLowerCase()}');
-                } else {
-                  context.go('/category?q=${category.title.toLowerCase()}');
-                }
+                context.push('/category?q=${category.title.toLowerCase()}');
               },
             ),
           )

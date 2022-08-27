@@ -18,7 +18,9 @@ class CategoryPage extends StatelessWidget {
     if (category == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Category')),
-        drawer: const MultiTestsDrawer(selectedIndex: 1),
+        drawer: const WDrawer(
+          selected: 1,
+        ),
         body: ListView.builder(
           itemBuilder: (context, index) => Card(
             clipBehavior: Clip.antiAlias,

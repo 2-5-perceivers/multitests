@@ -88,7 +88,6 @@ class TestPage extends StatelessWidget {
                                   padding: const EdgeInsets.only(top: 4),
                                   child: CategoriesWrap(
                                     testCategories: test.testCategories,
-                                    pushInsteadOfGo: true,
                                   ),
                                 ),
                               ),
@@ -232,7 +231,7 @@ class TestPage extends StatelessWidget {
                           },
                           title:
                               Text('Test provided by ${test.testAuthor.name}'),
-                          trailing: Icon(Icons.north_east),
+                          trailing: const Icon(Icons.north_east),
                         ),
                       ),
                     ),
