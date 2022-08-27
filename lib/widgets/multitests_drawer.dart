@@ -23,14 +23,16 @@ class WDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: Text(
-                  'MultiTests',
-                  style: Theme.of(context).textTheme.displaySmall,
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: Text(
+                    'MultiTests',
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
                 ),
               ),
             ),
