@@ -31,8 +31,7 @@ class MultiTestsAboutDialog extends StatelessWidget {
             Text(
               'Created by 2.5 Perceivers and Adorkw to simplify the '
               'online tests, give them a nice and a simple interface, with '
-              'amazing interpretations and icons. Blowing your mind with '
-              'colors and an app variant.',
+              'amazing interpretations, colors and icons.',
               style: theme.textTheme.bodyMedium!.copyWith(
                 color: theme.colorScheme.onSurface,
               ),

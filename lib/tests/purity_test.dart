@@ -213,7 +213,7 @@ Test purityTest = Test(
   ],
   testDataCollections: [],
   testSuggestions: [
-    'Do this test ONLY IF YOU HAVE AT LEAST 16 YEARS',
+    'Do this test ONLY IF YOU ARE AT LEAST 16 YEARS OLD',
     'Click on every item you have done.',
     'Take your time, and answer truthfully!',
     'MPS stands for Member of the Preferred Sex.',
