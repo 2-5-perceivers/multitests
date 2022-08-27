@@ -1,16 +1,14 @@
 # multitests
 
-An app for testing yours everything
+A platform created by 2.5 Perceivers and Adorkw to simplify the online tests, give them a nice and a simple interface, with amazing interpretations, colors and icons
 
-## Getting Started
+## Having an idea for a test?
 
-This project is a starting point for a Flutter application.
+If you don't know how to implement it yourself please open a discussion using the template.
 
-A few resources to get you started if this is your first Flutter project:
+## How to implement a test
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Create a new file with yor test name inside `/lib/tests`
+- Inside create a test using the Test class
+- export the file in `/lib/tests/tests.dart`
+- add the test to the registry in the main function in `main.dart`
