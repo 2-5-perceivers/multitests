@@ -227,7 +227,11 @@ class TestPage extends StatelessWidget {
                         clipBehavior: Clip.antiAlias,
                         child: ListTile(
                           onTap: () {
-                            launchUrl(Uri.parse(test.testAuthor.authorWebpage));
+                            launchUrl(
+                              Uri.parse(test.testAuthor.authorWebpage),
+                              mode: LaunchMode.externalNonBrowserApplication,
+                              webOnlyWindowName: '_blank',
+                            );
                           },
                           title:
                               Text('Test provided by ${test.testAuthor.name}'),

@@ -109,7 +109,11 @@ class MultiTestsMoreDialog extends StatelessWidget {
                 ),
                 trailing: const Icon(Icons.north_east),
                 onTap: () {
-                  launchUrl(Uri.https('adorkw.home.ro'));
+                  launchUrl(
+                    Uri.https('adorkw.home.ro'),
+                    mode: LaunchMode.externalNonBrowserApplication,
+                    webOnlyWindowName: '_blank',
+                  );
                 },
               ),
             ),
@@ -129,6 +133,8 @@ class MultiTestsMoreDialog extends StatelessWidget {
                 onTap: () {
                   launchUrl(
                     Uri.https('github.com', '/2-5-perceivers'),
+                    mode: LaunchMode.externalNonBrowserApplication,
+                    webOnlyWindowName: '_blank',
                   );
                 },
               ),
