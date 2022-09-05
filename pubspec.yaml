@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   animations: ^2.0.3
-  dynamic_color: ^1.5.2
+  dynamic_color: ^1.5.4
   flutter:
     sdk: flutter
   go_router: ^4.2.7
