@@ -28,12 +28,7 @@ class TestQuestionsPage extends StatelessWidget {
             return Title(
               color: Theme.of(context).colorScheme.primary,
               title: 'MultiTests - ${test.testName}',
-              child: Scaffold(
-                appBar: AppBar(
-                  title: Text(test.testName),
-                ),
-                body: const _QuesionPageAxis(),
-              ),
+              child: const _QuesionPageAxis(),
             );
           } else if (snapshot.hasError) {
             return const Page404(
@@ -70,91 +65,78 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
     List<TestQuestionsCategory> actualViews = _testProvider.paged
         ? [_testProvider.categories[pageIndex]]
         : _testProvider.categories;
-    return Column(
-      children: [
-        Expanded(
-          child: PageTransitionSwitcher(
-            reverse: reversingPage,
-            transitionBuilder: (
-              Widget child,
-              Animation<double> primaryAnimation,
-              Animation<double> secondaryAnimation,
-            ) {
-              return SharedAxisTransition(
-                animation: primaryAnimation,
-                secondaryAnimation: secondaryAnimation,
-                transitionType: SharedAxisTransitionType.horizontal,
-                child: child,
-              );
-            },
-            child: ListView(
-              key: ValueKey<int>(pageIndex),
-              children: [
-                for (var category in actualViews) WQCategoryCard(category),
-              ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_testProvider.test.testName),
+      ),
+      floatingActionButton: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (_testProvider.paged)
+            FloatingActionButton(
+              heroTag: null,
+              onPressed: pageIndex == 0
+                  ? null
+                  : () {
+                      setState(() {
+                        reversingPage = true;
+                        pageIndex--;
+                      });
+                    },
+              backgroundColor:
+                  pageIndex == 0 ? theme.colorScheme.secondaryContainer : null,
+              foregroundColor: pageIndex == 0
+                  ? theme.colorScheme.onSecondaryContainer
+                  : null,
             ),
-          ),
+          if (_testProvider.paged)
+            const SizedBox(
+              width: 8,
+            ),
+          pageIndex >= _testProvider.categories.length - 1 ||
+                  !_testProvider.paged
+              ? FloatingActionButton.extended(
+                  heroTag: null,
+                  onPressed: () {
+                  },
+                  icon: const Icon(Icons.done_rounded),
+                  label: const Text('Finish test'),
+                  backgroundColor: theme.colorScheme.primary,
+                  foregroundColor: theme.colorScheme.onPrimary,
+                )
+              : FloatingActionButton(
+                  heroTag: null,
+                  onPressed: () {
+                    setState(() {
+                      reversingPage = false;
+                      pageIndex++;
+                    });
+                  },
+                ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: PageTransitionSwitcher(
+        reverse: reversingPage,
+        duration: const Duration(
+          milliseconds: 700,
         ),
-        SizedBox(
-          height: 70,
-          child: Container(
-            color: ElevationOverlay.applySurfaceTint(
-              theme.colorScheme.surface,
-              theme.colorScheme.surfaceTint,
-              2,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (_testProvider.paged)
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: pageIndex == 0
-                            ? null
-                            : () {
-                                setState(() {
-                                  reversingPage = true;
-                                  pageIndex--;
-                                });
-                              },
-                        child: const Text('Back'),
-                      ),
-                    ),
-                  if (_testProvider.paged)
-                    const SizedBox(
-                      width: 8,
-                    ),
-                  Expanded(
-                    child: pageIndex >= _testProvider.categories.length - 1 ||
-                            !_testProvider.paged
-                        ? FilledButton.icon(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => ResultPage(
-                                    _testProvider.finnish(),
-                                  ),
-                                ),
-                              );
-                            },
-                            icon: const Icon(Icons.done_rounded),
-                            label: const Text('Finish'),
-                          )
-                        : FilledButton(
-                            onPressed: () {
-                              setState(() {
-                                reversingPage = false;
-                                pageIndex++;
-                              });
-                            },
-                            child: const Text('Next'),
-                          ),
-                  ),
-                ],
-              ),
-            ),
+        transitionBuilder: (
+          Widget child,
+          Animation<double> primaryAnimation,
+          Animation<double> secondaryAnimation,
+        ) {
+          return SharedAxisTransition(
+            animation: primaryAnimation,
+            secondaryAnimation: secondaryAnimation,
+            transitionType: SharedAxisTransitionType.horizontal,
+            child: child,
+          );
+        },
+        child: ListView(
+          key: ValueKey<int>(pageIndex),
+          padding: EdgeInsets.only(
+            bottom: 84 + MediaQuery.of(context).viewPadding.bottom,
           ),
         ),
       ],
