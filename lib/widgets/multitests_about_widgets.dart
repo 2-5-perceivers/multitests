@@ -4,7 +4,7 @@ import 'package:multitests/classes/multi_icons_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const String _copyright = '© 2022 2.5 Perceivers and Adorkw',
-    _appVersion = '1.2.0';
+    _appVersion = '1.2.1';
 
 /// A dialog that show information about MultiTests and opens up a License Page
 class MultiTestsAboutDialog extends StatelessWidget {

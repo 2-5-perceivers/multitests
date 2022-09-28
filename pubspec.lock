@@ -7,7 +7,7 @@ packages:
       name: animations
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.5"
   async:
     dependency: transitive
     description:
@@ -56,7 +56,7 @@ packages:
       name: dynamic_color
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.3"
+    version: "1.5.4"
   fake_async:
     dependency: transitive
     description:
@@ -99,7 +99,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.0"
+    version: "4.5.1"
   js:
     dependency: transitive
     description:
@@ -169,7 +169,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   provider:
     dependency: "direct main"
     description:
@@ -183,16 +183,16 @@ packages:
       name: share_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.10+1"
+    version: "4.4.0"
   share_plus_dialog:
     dependency: "direct main"
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "3198e7a3f96d38c89ef4d0d4dd739eeb57b27578"
+      resolved-ref: "6ea16e0300286b617d72a1c45d59118ab02ed7ba"
       url: "https://github.com/2-5-perceivers/share_plus_dialog.git"
     source: git
-    version: "1.0.2"
+    version: "1.1.0"
   share_plus_linux:
     dependency: transitive
     description:
@@ -288,7 +288,7 @@ packages:
       name: url_launcher_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.17"
+    version: "6.0.19"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -340,4 +340,4 @@ packages:
     version: "2.1.3"
 sdks:
   dart: ">=2.18.0-146.0.dev <3.0.0"
-  flutter: ">=3.1.0-0.0.pre.1036"
+  flutter: ">=3.3.0"
