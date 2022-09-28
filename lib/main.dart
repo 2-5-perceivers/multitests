@@ -7,6 +7,7 @@ import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/category_page.dart';
 import 'package:multitests/pages/home_page.dart';
 import 'package:multitests/pages/page_404.dart';
+import 'package:multitests/pages/results_page.dart';
 import 'package:multitests/pages/test_page.dart';
 import 'package:multitests/pages/test_qestions_page.dart';
 import 'package:multitests/tests/tests.dart';
@@ -70,6 +71,18 @@ class MultiTestsApp extends StatelessWidget {
                   builder: (context, state) {
                     return TestQuestionsPage(
                         testID: state.params['testID'] ?? 'null');
+                  },
+                ),
+                GoRoute(
+                  path: 'result',
+                  builder: (context, state) {
+                    return ResultPage(state.extra as TestResult);
+                  },
+                  redirect: (state) {
+                    if (state.extra == null) {
+                      return '/test/${state.params['testID']}';
+                    }
+                    return null;
                   },
                 ),
               ]),

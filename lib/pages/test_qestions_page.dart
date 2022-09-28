@@ -1,8 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/test_provider.dart';
 import 'package:multitests/pages/page_404.dart';
-import 'package:multitests/pages/results_page.dart';
 import 'package:multitests/widgets/loading_widget.dart';
 import 'package:multitests/widgets/questions_widgets/category_card.dart';
 import 'package:provider/provider.dart';
@@ -98,6 +98,10 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
               ? FloatingActionButton.extended(
                   heroTag: null,
                   onPressed: () {
+                    context.go(
+                      '/test/${_testProvider.testID}/result',
+                      extra: _testProvider.finnish(),
+                    );
                   },
                   icon: const Icon(Icons.done_rounded),
                   label: const Text('Finish test'),
@@ -138,8 +142,11 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
           padding: EdgeInsets.only(
             bottom: 84 + MediaQuery.of(context).viewPadding.bottom,
           ),
+          children: [
+            for (var category in actualViews) WQCategoryCard(category),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

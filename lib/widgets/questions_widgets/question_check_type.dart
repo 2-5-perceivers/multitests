@@ -22,6 +22,16 @@ class _WQCheckState extends State<WQCheck> {
       widget.question.question,
     );
     return ListTile(
+      onTap: () {
+        setState(() {
+          tp.setBool(
+            widget.valueKey,
+            widget.question.question,
+            !checkValue,
+            widget.question.valueForChecked,
+          );
+        });
+      },
       title: Text(widget.question.question),
       trailing: Transform.scale(
         scale: 1.2,
