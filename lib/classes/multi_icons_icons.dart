@@ -13,7 +13,11 @@
 ///
 ///
 ///
-import 'package:flutter/widgets.dart';
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:multitests/utils/platform_adaptive.dart';
 
 class MultiIcons {
   MultiIcons._();
@@ -23,4 +27,65 @@ class MultiIcons {
 
   static const IconData nonScience =
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+
+  // Forwards from the adaptive icons
+  static IconData get arrow_forward => Icons.adaptive.arrow_forward_rounded;
+
+  static IconData get arrow_back => Icons.adaptive.arrow_back_rounded;
+
+  static IconData get more => Icons.adaptive.more;
+
+  static IconData get share => Icons.adaptive.share_rounded;
+
+  // Adaptive icons
+  static IconData get start => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.play_arrow_solid
+      : Icons.play_arrow_rounded;
+
+  static IconData get external_link => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.arrow_up_right
+      : Icons.north_east;
+
+  static IconData get for_you_outlined => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.rectangle_3_offgrid
+      : Icons.dashboard_outlined;
+
+  static IconData get for_you_filled => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.rectangle_3_offgrid_fill
+      : Icons.dashboard;
+
+  static IconData get account_outlined => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.person_crop_circle
+      : Icons.account_circle_outlined;
+
+  static IconData get account_filled => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.person_crop_circle_fill
+      : Icons.account_circle;
+
+  static IconData get search =>
+      PlatformAdaptive.isCupertino() ? CupertinoIcons.search : Icons.search;
+
+  static IconData get school => Icons.school_rounded;
+
+  static IconData get home =>
+      PlatformAdaptive.isCupertino() ? CupertinoIcons.home : Icons.home_rounded;
+
+  static IconData get category => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.rectangle_grid_2x2
+      : Icons.category_rounded;
+
+  static IconData get help => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.question_circle_fill
+      : Icons.help_outline_rounded;
+
+  static IconData get info => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.info_circle
+      : Icons.info_outline_rounded;
+
+  static IconData get add =>
+      PlatformAdaptive.isCupertino() ? CupertinoIcons.plus : Icons.add_rounded;
+
+  static IconData get time => PlatformAdaptive.isCupertino()
+      ? CupertinoIcons.hourglass
+      : Icons.hourglass_top_rounded;
 }

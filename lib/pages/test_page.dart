@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:multitests/classes/multi_icons_icons.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/page_404.dart';
 import 'package:multitests/utils/utils.dart';
@@ -43,7 +44,7 @@ class TestPage extends StatelessWidget {
                   [
                     ActionItem(
                       actionTitle: 'Share test',
-                      icon: Icons.share_rounded,
+                      icon: MultiIcons.share,
                       onTap: (context, inMenu) {
                         ShareDialog.share(
                           context,
@@ -104,6 +105,7 @@ class TestPage extends StatelessWidget {
                                     message:
                                         'Some tests might collect data for public statistics',
                                     child: Icon(
+                                      MultiIcons.help,
                                     ),
                                   ),
                                 ),
@@ -286,6 +288,7 @@ class TestPage extends StatelessWidget {
               context.go('/test/${test.id}/run');
             },
             label: const Text('Start test'),
+            icon: Icon(MultiIcons.start),
           ),
         ),
       ),

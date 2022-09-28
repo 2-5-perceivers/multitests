@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:multitests/classes/multi_icons_icons.dart';
 import 'package:multitests/classes/test_provider.dart';
 import 'package:multitests/pages/page_404.dart';
 import 'package:multitests/widgets/loading_widget.dart';
@@ -88,6 +89,7 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
               foregroundColor: pageIndex == 0
                   ? theme.colorScheme.onSecondaryContainer
                   : null,
+              child: Icon(MultiIcons.arrow_back),
             ),
           if (_testProvider.paged)
             const SizedBox(
@@ -116,6 +118,7 @@ class _QuesionPageAxisState extends State<_QuesionPageAxis> {
                       pageIndex++;
                     });
                   },
+                  child: Icon(MultiIcons.arrow_forward),
                 ),
         ],
       ),
