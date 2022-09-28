@@ -1,11 +1,13 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/category_page.dart';
 import 'package:multitests/pages/home_page.dart';
 import 'package:multitests/pages/page_404.dart';
+import 'package:multitests/pages/results_page.dart';
 import 'package:multitests/pages/test_page.dart';
 import 'package:multitests/pages/test_qestions_page.dart';
 import 'package:multitests/tests/tests.dart';
@@ -22,7 +24,28 @@ void main() {
     ),
   );
   TestRegistry.addMultiTest(purityTest);
+
   runApp(MultiTestsApp());
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.edgeToEdge,
+  ); // Enable Edge-to-Edge on Android 10+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      systemNavigationBarColor:
+          Colors.transparent, // Setting a transparent navigation bar color
+      systemNavigationBarContrastEnforced: true, // Default
+      systemStatusBarContrastEnforced: true,
+      statusBarColor: Colors.transparent,
+    ),
+  );
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      // DeviceOrientation.landscapeLeft,
+      // DeviceOrientation.landscapeRight,
+    ],
+  );
 }
 
 class MultiTestsApp extends StatelessWidget {
@@ -48,6 +71,18 @@ class MultiTestsApp extends StatelessWidget {
                   builder: (context, state) {
                     return TestQuestionsPage(
                         testID: state.params['testID'] ?? 'null');
+                  },
+                ),
+                GoRoute(
+                  path: 'result',
+                  builder: (context, state) {
+                    return ResultPage(state.extra as TestResult);
+                  },
+                  redirect: (state) {
+                    if (state.extra == null) {
+                      return '/test/${state.params['testID']}';
+                    }
+                    return null;
                   },
                 ),
               ]),
@@ -114,26 +149,22 @@ class MultiTestsApp extends StatelessWidget {
             brightness: lightColorScheme.brightness,
             canvasColor: lightColorScheme.background,
             scaffoldBackgroundColor: lightColorScheme.background,
-            bottomAppBarColor: lightColorScheme.surface,
             cardColor: lightColorScheme.surface,
             dividerColor: lightColorScheme.onSurface.withOpacity(0.12),
-            backgroundColor: lightColorScheme.background,
             dialogBackgroundColor: lightColorScheme.background,
-            errorColor: lightColorScheme.error,
             useMaterial3: true,
+            drawerTheme: const DrawerThemeData(elevation: 0),
           ),
           darkTheme: ThemeData(
             colorScheme: darkColorScheme,
             brightness: darkColorScheme.brightness,
             canvasColor: darkColorScheme.background,
             scaffoldBackgroundColor: darkColorScheme.background,
-            bottomAppBarColor: darkColorScheme.surface,
             cardColor: darkColorScheme.surface,
             dividerColor: darkColorScheme.onSurface.withOpacity(0.12),
-            backgroundColor: darkColorScheme.background,
             dialogBackgroundColor: darkColorScheme.background,
-            errorColor: darkColorScheme.error,
             useMaterial3: true,
+            drawerTheme: const DrawerThemeData(elevation: 0),
           ),
         );
       },

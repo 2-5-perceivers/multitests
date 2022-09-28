@@ -62,8 +62,6 @@ class TestAuthor {
 enum TestCategory {
   explicit('Explicit', Icons.explicit),
   maturity('Maturity', Icons.school),
-  personality('Personality', Icons.psychology),
-  scientific('Scientific', Icons.science),
   nonScientific('Non-scientific', MultiIcons.nonScience);
 
   const TestCategory(this.title, this.icon);

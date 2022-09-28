@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:multitests/classes/multi_icons_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const String _copyright = '© 2022 2.5 Perceivers and Adorkw',
-    _appVersion = '1.2.0';
+    _appVersion = '1.2.1';
 
 /// A dialog that show information about MultiTests and opens up a License Page
 class MultiTestsAboutDialog extends StatelessWidget {
@@ -14,7 +15,7 @@ class MultiTestsAboutDialog extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     return AlertDialog(
       title: const Text('About MultiTests'),
-      icon: const Icon(Icons.info_outline_rounded),
+      icon: Icon(MultiIcons.info),
       content: SingleChildScrollView(
         child: Column(
           children: [
@@ -107,7 +108,7 @@ class MultiTestsMoreDialog extends StatelessWidget {
                   'A Romanian technology company that focuses on simplifying '
                   "and securing users' lives.",
                 ),
-                trailing: const Icon(Icons.north_east),
+                trailing: Icon(MultiIcons.external_link),
                 onTap: () {
                   launchUrl(
                     Uri.https('adorkw.home.ro'),
@@ -129,7 +130,7 @@ class MultiTestsMoreDialog extends StatelessWidget {
                   "people to share their ideas with the public. Adorkw's "
                   'biggest open-source partner.',
                 ),
-                trailing: const Icon(Icons.north_east),
+                trailing: Icon(MultiIcons.external_link),
                 onTap: () {
                   launchUrl(
                     Uri.https('github.com', '/2-5-perceivers'),

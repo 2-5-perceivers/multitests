@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multitests/classes/tests_registry.dart';
+import 'package:multitests/widgets/centering_widget.dart';
 import 'package:multitests/widgets/multitests_drawer.dart';
 import 'package:multitests/widgets/test_tile.dart';
 
@@ -21,7 +22,11 @@ class HomePage extends StatelessWidget {
           selected: 0,
         ),
         body: ListView.builder(
-          itemBuilder: (context, index) => TestTile(testList[index]),
+          itemBuilder: (context, index) => CenterWidget(
+            child: TestTile(
+              testList[index],
+            ),
+          ),
           itemCount: testList.length,
         ),
       ),

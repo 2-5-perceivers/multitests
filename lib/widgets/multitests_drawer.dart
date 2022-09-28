@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:multitests/classes/multi_icons_icons.dart';
 import 'package:multitests/widgets/multitests_about_widgets.dart';
 
 import 'package:multitests/widgets/list_tile.dart';
 
-const List<_Page> _pages = [
-  _Page(Icons.home, 'Home', '/'),
-  _Page(Icons.category_rounded, 'Category', '/category'),
+List<_Page> _pages = [
+  _Page(MultiIcons.home, 'Home', '/'),
+  _Page(MultiIcons.category, 'Categories', '/category'),
 ];
 
 class WDrawer extends StatelessWidget {
@@ -53,7 +54,7 @@ class WDrawer extends StatelessWidget {
           const Divider(indent: 32, endIndent: 32),
           WListTile(
             title: const Text('About'),
-            leading: const Icon(Icons.info_outline_rounded),
+            leading: Icon(MultiIcons.info),
             subtitle: const Text('More info about the app'),
             onTap: () {
               showDialog(

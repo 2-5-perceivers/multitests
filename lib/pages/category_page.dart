@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multitests/classes/tests_registry.dart';
 import 'package:multitests/pages/page_404.dart';
+import 'package:multitests/widgets/centering_widget.dart';
 import 'package:multitests/widgets/multitests_drawer.dart';
 import 'package:multitests/widgets/test_tile.dart';
 
@@ -21,7 +22,40 @@ class CategoryPage extends StatelessWidget {
         drawer: const WDrawer(
           selected: 1,
         ),
-        body: ListView.builder(
+        body: CenterWidget(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 300,
+                mainAxisExtent: 56,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+              ),
+              itemBuilder: (context, index) => Card(
+                margin: EdgeInsets.zero,
+                clipBehavior: Clip.antiAlias,
+                child: ListTile(
+                  title: Text(
+                    TestCategory.values[index].title,
+                    maxLines: 1,
+                    overflow: TextOverflow.fade,
+                    softWrap: false,
+                  ),
+                  leading: Icon(TestCategory.values[index].icon),
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      '/category?q=${TestCategory.values[index].title.toLowerCase()}',
+                    );
+                  },
+                ),
+              ),
+              itemCount: TestCategory.values.length,
+            ),
+          ),
+        ),
+
+        /* ListView.builder(
           itemBuilder: (context, index) => Card(
             clipBehavior: Clip.antiAlias,
             child: ListTile(
@@ -35,7 +69,7 @@ class CategoryPage extends StatelessWidget {
             ),
           ),
           itemCount: TestCategory.values.length,
-        ),
+        ), */
       );
     }
     return Title(
@@ -55,7 +89,11 @@ class CategoryPage extends StatelessWidget {
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
-                        return TestTile(snapshot.data![index]);
+                        return CenterWidget(
+                          child: TestTile(
+                            snapshot.data![index],
+                          ),
+                        );
                       },
                       childCount: snapshot.data!.length,
                     ),
