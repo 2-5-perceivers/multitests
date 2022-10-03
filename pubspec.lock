@@ -134,7 +134,7 @@ packages:
       name: material_color_utilities
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.1.5"
   meta:
     dependency: transitive
     description:
@@ -189,10 +189,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "6ea16e0300286b617d72a1c45d59118ab02ed7ba"
+      resolved-ref: b556472f9d3d9646593ca3d09bc47e4c599c39c1
       url: "https://github.com/2-5-perceivers/share_plus_dialog.git"
     source: git
-    version: "1.1.0"
+    version: "1.1.1"
   share_plus_linux:
     dependency: transitive
     description:
@@ -239,7 +239,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.1"
+    version: "1.9.0"
   stack_trace:
     dependency: transitive
     description:
@@ -274,7 +274,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.13"
+    version: "0.4.12"
   url_launcher:
     dependency: "direct main"
     description:
@@ -337,7 +337,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.3"
+    version: "2.1.2"
 sdks:
-  dart: ">=2.18.0-146.0.dev <3.0.0"
+  dart: ">=2.17.0 <3.0.0"
   flutter: ">=3.3.0"
