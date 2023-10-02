@@ -11,7 +11,7 @@ environment:
 dependencies:
   animations: ^2.0.7
   cupertino_icons: ^1.0.5
-  dynamic_color: ^1.5.2
+  dynamic_color: ^1.6.7
   flutter:
     sdk: flutter
   go_router: ^5.1.10
